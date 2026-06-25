@@ -1,0 +1,18 @@
+name: deploy app
+
+on:
+  workflow_dispatch:
+
+jobs:
+  deploy:
+     runs_on: ubuntu-latest
+     steps:
+       - name: checkout code
+         uses: actions/checkout@v7
+
+       - name: run comaand
+         run: ls -lart
+
+       - name: run command
+         run: mkdir kavya
+        
