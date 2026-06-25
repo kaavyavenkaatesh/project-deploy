@@ -1,18 +1,21 @@
 name: deploy app
 
 on:
-  workflow_dispatch:
+  push: 
+    branches:
+     - main
 
 jobs:
   deploy:
      runs_on: ubuntu-latest
+     
      steps:
-       - name: checkout code
-         uses: actions/checkout@v7
+      - name: checkout code
+        uses: actions/checkout@v4
 
-       - name: run comaand
-         run: ls -lart
+      - name: print message
+        run: echo "Hello"
 
-       - name: run command
-         run: mkdir kavya
+      - name: show files
+        run: ls -la
         
