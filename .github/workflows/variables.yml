@@ -30,7 +30,7 @@ jobs:
       - name: Display Inputs
         run: |
           echo "Environment: ${{inputs.environment}}"
-          echo "Version: ${{inputs.version}}
+          echo "Version: ${{inputs.version}}"
 
 
       - name: Environment Variable
