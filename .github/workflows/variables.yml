@@ -35,4 +35,4 @@ jobs:
 
       - name: Environment Variable
         run: |
-          echo "Environment: $env"
+          echo "Environment: ${{env}}"
