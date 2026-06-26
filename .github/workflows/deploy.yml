@@ -1,4 +1,4 @@
-name: deploy app
+iname: deploy app
 
 on:
   push: 
@@ -7,7 +7,7 @@ on:
 
 jobs:
   deploy:
-     runs_on: ubuntu-latest
+     runs-on: ubuntu-latest
      
      steps:
       - name: checkout code
