@@ -1,0 +1,29 @@
+name: Sequential-jobs-with-input-and-output-variables
+
+on:
+  workflow_dispatch: 
+    inputs:
+      run-second-job:
+        description: 'Click yes if you want to run 2nd job'
+        required: true
+        type: choice
+        default: 'Yes'
+        options:
+        - Yes
+        - No
+
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+    steps:
+      - name: first-sequential-job-which-asks-input
+        run: echo "I will run irrespective of input received or not"
+
+  job2:
+    if: ${{inputs.run-second-job == 'Yes'}} 
+    runs-on: ubuntu-latest
+    steps:
+     - name: second-sequential-job-which-takes-input
+       run: echo 'running second job has you hit "yes"'
+       
+        
