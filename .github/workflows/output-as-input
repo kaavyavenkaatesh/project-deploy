@@ -1,0 +1,32 @@
+name: output-as-input
+
+on: workflow_dispatch
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    outputs: 
+      image_tag: ${{ steps.build.outputs.image_tag }}
+    
+    steps:
+      - name: Set environment
+        run: |
+          echo "ENV=dev" >> GITHUB_ENV
+          
+      - name: Build image
+        id: build
+        run: |
+          echo "Building in $ENV"
+          echo "image-tag=myapp:v1.0${{ github.run_number }}" >> GITHUB_OUTPUT
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy Image
+        run: |
+          echo "Deploying ${{ needs.build.outputs.image_tag }}
+      
+          
+          
