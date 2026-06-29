@@ -11,7 +11,7 @@ jobs:
         id: cache
         uses: actions/cache@v6
         with:
-          path:
+          path: data
           key: my-cache-v1
 
       - name: Time consuming activity
